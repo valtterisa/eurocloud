@@ -1,10 +1,11 @@
 ---
 import { getCollection } from "astro:content";
+import { withBase } from "../../lib/url";
 
 const docs = (await getCollection("docs")).sort((a, b) => a.data.order - b.data.order);
 const first = docs[0];
 if (!first) {
   throw new Error("No docs found");
 }
-return Astro.redirect(`/docs/${first.id}`);
+return Astro.redirect(withBase(`/docs/${first.id}`));
 ---

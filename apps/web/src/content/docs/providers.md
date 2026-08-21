@@ -28,8 +28,8 @@ Unknown names fail with `unknown_provider` and list the available providers.
 - `--type` and `--image` accept a UUID or a name (`b2-7`, `Ubuntu 24.04`)
 - Default region is `GRA11`
 
-See [Authentication](/docs/auth) for env vars.
+See [Authentication](./auth) for env vars.
 
 ## Adding another cloud
 
-Implement `CloudProvider` in `packages/cli/src/providers/<name>/` and register a factory in `registry.ts`. See [Extending](/docs/extending).
+Implement `CloudProvider` in `packages/cli/src/providers/<name>/` and register a factory in `registry.ts`. See [Extending](./extending).

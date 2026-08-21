@@ -1,9 +1,10 @@
 ---
+import { withBase } from "../lib/url";
 ---
 
 <footer class="site-footer">
-  <div class="wrap">
-    <span>eurocloud — Hetzner and OVHcloud from one CLI.</span>
-    <a href="/docs/install">Documentation</a>
+  <div class="foot">
+    <span>+ hetzner | ovhcloud +</span>
+    <a href={withBase("/docs/install")}>docs</a>
   </div>
 </footer>

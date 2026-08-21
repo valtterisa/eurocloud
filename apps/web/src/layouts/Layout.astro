@@ -1,4 +1,6 @@
 ---
+import { withBase } from "../lib/url";
+
 interface Props {
   title: string;
   description: string;
@@ -6,8 +8,9 @@ interface Props {
 }
 
 const { title, description, path = "/" } = Astro.props;
-const site = Astro.site ?? new URL("https://eurocloud.dev");
-const canonical = new URL(path, site).toString();
+const site = Astro.site ?? new URL("https://valtterisa.github.io");
+const canonical = new URL(withBase(path), site).toString();
+const home = new URL(withBase("/"), site).toString();
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -16,7 +19,7 @@ const jsonLd = {
   operatingSystem: "Linux, macOS, Windows",
   description,
   offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
-  url: String(site),
+  url: home,
 };
 ---
 
@@ -33,20 +36,18 @@ const jsonLd = {
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
     <meta name="twitter:card" content="summary" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="sitemap" href="/sitemap-index.xml" />
-    {path === "/" && (
-      <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-    )}
+    <link rel="icon" href={withBase("/favicon.svg")} type="image/svg+xml" />
+    <link rel="sitemap" href={withBase("/sitemap-index.xml")} />
+    {
+      path === "/" && (
+        <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+      )
+    }
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
-    <slot />
+    <div class="frame">
+      <slot />
+    </div>
   </body>
 </html>

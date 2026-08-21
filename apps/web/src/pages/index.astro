@@ -2,79 +2,82 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import AsciiMark from "../components/AsciiMark.astro";
+import { withBase } from "../lib/url";
 import "../styles/global.css";
 ---
 
 <Layout
-  title="eurocloud — one CLI for European clouds"
+  title="eurocloud - one CLI for European clouds"
   description="Create, list, SSH into, and destroy Hetzner and OVHcloud servers from the terminal. JSON output for agents."
   path="/"
 >
   <Header current="home" />
   <main id="main">
-    <section class="wrap hero">
-      <div>
-        <p class="kicker">v0.1 CLI</p>
-        <h1>One CLI. European clouds.</h1>
+    <section class="hero">
+      <div class="hero-copy">
+        <h1>One CLI for European clouds.</h1>
         <p class="lede">
-          Create, list, SSH, and destroy servers on Hetzner and OVHcloud without opening a dashboard.
-          Short commands, honest defaults, <code>--json</code> for agents.
+          Create, list, SSH, and destroy Hetzner and OVHcloud servers from the terminal.
         </p>
         <div class="hero-actions">
-          <a class="btn" href="/docs/install">Read the docs</a>
-          <a class="btn btn-ghost" href="/docs/commands">See commands</a>
+          <a class="btn" href={withBase("/docs/install")}>Get started</a>
+          <a class="btn btn-ghost" href={withBase("/docs/commands")}>Commands</a>
         </div>
       </div>
-      <div class="terminal" aria-label="Example eurocloud session">
-        <div class="terminal-bar" aria-hidden="true">
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-        </div>
-        <pre><code><span class="prompt">$</span> eurocloud create --name my-app
-<span class="out">Created server my-app (42)
-Provider: hetzner
-IPv4:     203.0.113.10</span>
-<span class="prompt">$</span> eurocloud ssh my-app
-<span class="out">ssh root@203.0.113.10</span>
-<span class="prompt">$</span> eurocloud destroy my-app
-<span class="out">Destroyed server my-app (42)</span></code></pre>
+      <div class="hero-art">
+        <AsciiMark />
       </div>
     </section>
 
-    <section class="wrap section">
-      <div class="section-head">
-        <h2>Small surface. Real servers.</h2>
-        <p>
-          eurocloud is a TypeScript CLI: Commander, native fetch, and <code>ssh</code> with inherited stdio.
-          Credentials come from the environment — no login flow.
-        </p>
-      </div>
-      <div class="grid-3">
-        <article class="card">
-          <h3>Five verbs</h3>
-          <p><code>create</code>, <code>list</code>, <code>get</code>, <code>ssh</code>, <code>destroy</code>. Same flags on every provider.</p>
-        </article>
-        <article class="card">
-          <h3>Hetzner and OVH</h3>
-          <p>Bearer token for Hetzner. Signed OVH keys for Public Cloud instances. Switch with <code>--provider</code>.</p>
-        </article>
-        <article class="card">
-          <h3>Agent-ready JSON</h3>
-          <p>Stable objects, string IDs, error envelopes. <code>ssh --json</code> prints the command without opening a session.</p>
-        </article>
-      </div>
-    </section>
+    <div class="band band-5">
+      <article class="cell">
+        <p class="cell-k">$</p>
+        <h3>create</h3>
+        <p>Spin up a server with provider defaults.</p>
+      </article>
+      <article class="cell">
+        <p class="cell-k">$</p>
+        <h3>list</h3>
+        <p>Print every instance you can see.</p>
+      </article>
+      <article class="cell">
+        <p class="cell-k">$</p>
+        <h3>get</h3>
+        <p>Resolve by name or id.</p>
+      </article>
+      <article class="cell">
+        <p class="cell-k">$</p>
+        <h3>ssh</h3>
+        <p>Open native ssh, or print --json.</p>
+      </article>
+      <article class="cell">
+        <p class="cell-k">$</p>
+        <h3>destroy</h3>
+        <p>Tear it down when you are done.</p>
+      </article>
+    </div>
 
-    <section class="wrap section">
-      <div class="section-head">
-        <h2>Install and go</h2>
-        <p>From this monorepo, or link the built package. Node 18+.</p>
-      </div>
-      <pre><code>pnpm install
-pnpm --filter eurocloud build
-pnpm --filter eurocloud exec eurocloud create --name my-app</code></pre>
-    </section>
+    <div class="band band-2">
+      <article class="cell">
+        <p class="cell-k">provider</p>
+        <h2>Hetzner</h2>
+        <p>Bearer token. Default type cpx11 in nbg1. IDs as strings in JSON.</p>
+      </article>
+      <article class="cell">
+        <p class="cell-k">provider</p>
+        <h2>OVHcloud</h2>
+        <p>Signed keys. Default type b2-7 in GRA11. Switch with --provider ovh.</p>
+      </article>
+    </div>
+
+    <div class="block-head">
+      <h2>+ install</h2>
+      <p>Node 18+. Build the workspace package, then run it.</p>
+    </div>
+    <pre class="install-pre"><code>pnpm install
+pnpm cli:build
+pnpm cli -- create --name my-app</code></pre>
   </main>
   <Footer />
 </Layout>

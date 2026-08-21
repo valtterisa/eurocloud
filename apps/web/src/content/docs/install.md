@@ -25,9 +25,9 @@ eurocloud --help
 ## Requirements
 
 - Node.js 18 or newer
-- An API token for [Hetzner Cloud](/docs/auth) and/or [OVHcloud](/docs/auth)
+- An API token for [Hetzner Cloud](./auth) and/or [OVHcloud](./auth)
 - OpenSSH on your PATH if you use `eurocloud ssh`
 
 ## Next
 
-Set credentials in [Authentication](/docs/auth), then create a server with [Commands](/docs/commands).
+Set credentials in [Authentication](./auth), then create a server with [Commands](./commands).
