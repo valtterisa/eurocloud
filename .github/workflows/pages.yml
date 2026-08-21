@@ -28,6 +28,8 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm web:build
+        env:
+          ASTRO_BASE: /eurocloud
       - uses: actions/upload-pages-artifact@v3
         with:
           path: apps/web/dist

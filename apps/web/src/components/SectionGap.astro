@@ -1,0 +1,14 @@
+---
+interface Props {
+  cells?: 1 | 2 | 3;
+}
+
+const { cells = 2 } = Astro.props;
+const n = cells;
+---
+
+<div class={`void void-${n}`} aria-hidden="true">
+  {Array.from({ length: n }, () => (
+    <div class="void-cell" />
+  ))}
+</div>

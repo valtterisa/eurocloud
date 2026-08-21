@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import AsciiMark from "../components/AsciiMark.astro";
+import SectionGap from "../components/SectionGap.astro";
 import { withBase } from "../lib/url";
 import "../styles/global.css";
 ---
@@ -30,54 +31,119 @@ import "../styles/global.css";
       </div>
     </section>
 
-    <div class="band band-5">
-      <article class="cell">
-        <p class="cell-k">$</p>
-        <h3>create</h3>
-        <p>Spin up a server with provider defaults.</p>
-      </article>
-      <article class="cell">
-        <p class="cell-k">$</p>
-        <h3>list</h3>
-        <p>Print every instance you can see.</p>
-      </article>
-      <article class="cell">
-        <p class="cell-k">$</p>
-        <h3>get</h3>
-        <p>Resolve by name or id.</p>
-      </article>
-      <article class="cell">
-        <p class="cell-k">$</p>
-        <h3>ssh</h3>
-        <p>Open native ssh, or print --json.</p>
-      </article>
-      <article class="cell">
-        <p class="cell-k">$</p>
-        <h3>destroy</h3>
-        <p>Tear it down when you are done.</p>
-      </article>
-    </div>
+    <SectionGap />
 
-    <div class="band band-2">
-      <article class="cell">
-        <p class="cell-k">provider</p>
-        <h2>Hetzner</h2>
-        <p>Bearer token. Default type cpx11 in nbg1. IDs as strings in JSON.</p>
-      </article>
-      <article class="cell">
-        <p class="cell-k">provider</p>
-        <h2>OVHcloud</h2>
-        <p>Signed keys. Default type b2-7 in GRA11. Switch with --provider ovh.</p>
-      </article>
-    </div>
+    <section class="block">
+      <header class="sect">
+        <h2>Five verbs.</h2>
+        <p>Same commands on every provider. No extra surface.</p>
+      </header>
+      <div class="band band-5">
+        <article class="cell">
+          <h3>create</h3>
+          <p>Spin up a server with provider defaults.</p>
+        </article>
+        <article class="cell">
+          <h3>list</h3>
+          <p>Print every instance you can see.</p>
+        </article>
+        <article class="cell">
+          <h3>get</h3>
+          <p>Resolve by name or id.</p>
+        </article>
+        <article class="cell">
+          <h3>ssh</h3>
+          <p>Open native ssh, or print --json.</p>
+        </article>
+        <article class="cell">
+          <h3>destroy</h3>
+          <p>Tear it down when you are done.</p>
+        </article>
+      </div>
+    </section>
 
-    <div class="block-head">
-      <h2>+ install</h2>
-      <p>Node 18+. Build the workspace package, then run it.</p>
-    </div>
-    <pre class="install-pre"><code>pnpm install
+    <SectionGap cells={3} />
+
+    <section class="block block-accent">
+      <header class="sect">
+        <h2>Why use this.</h2>
+        <p>A small CLI for people who already live in a terminal.</p>
+      </header>
+      <dl class="why">
+        <div class="why-row">
+          <dt>One surface</dt>
+          <dd>create, list, get, ssh, and destroy work the same on Hetzner and OVHcloud.</dd>
+        </div>
+        <div class="why-row">
+          <dt>Env tokens</dt>
+          <dd>Credentials come from the environment. There is no login command.</dd>
+        </div>
+        <div class="why-row">
+          <dt>JSON for agents</dt>
+          <dd>--json on every verb. ssh --json prints the connection and does not open a session.</dd>
+        </div>
+        <div class="why-row">
+          <dt>Native ssh</dt>
+          <dd>Spawns OpenSSH with inherited stdio. You keep your keys, agent, and config.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <SectionGap />
+
+    <section class="block">
+      <header class="sect">
+        <h2>Two clouds.</h2>
+        <p>Switch with --provider. Defaults come from the cloud, not a global hardcode.</p>
+      </header>
+      <div class="band band-2">
+        <article class="cell cell-lg">
+          <h3>Hetzner</h3>
+          <p>Bearer token. Default type cpx11 in nbg1. IDs as strings in JSON.</p>
+        </article>
+        <article class="cell cell-lg">
+          <h3>OVHcloud</h3>
+          <p>Signed keys. Default type b2-7 in GRA11. Switch with --provider ovh.</p>
+        </article>
+      </div>
+    </section>
+
+    <SectionGap cells={1} />
+
+    <section class="block block-code">
+      <header class="sect">
+        <h2>Install and run.</h2>
+        <p>Node 18+. Build the workspace package, then run it.</p>
+      </header>
+      <pre class="install-pre"><code>pnpm install
 pnpm cli:build
 pnpm cli -- create --name my-app</code></pre>
+    </section>
+
+    <SectionGap />
+
+    <section class="block">
+      <header class="sect">
+        <h2>Source.</h2>
+        <p>Open on GitHub. MIT. One contributor so far.</p>
+      </header>
+      <div class="source">
+        <a class="who" href="https://github.com/valtterisa" rel="noreferrer">
+          <img
+            src="https://avatars.githubusercontent.com/u/24230618?v=4"
+            alt=""
+            width="32"
+            height="32"
+          />
+          valtterisa
+        </a>
+        <a class="repo" href="https://github.com/valtterisa/eurocloud" rel="noreferrer">
+          github.com/valtterisa/eurocloud
+        </a>
+      </div>
+    </section>
+
+    <SectionGap cells={1} />
   </main>
   <Footer />
 </Layout>

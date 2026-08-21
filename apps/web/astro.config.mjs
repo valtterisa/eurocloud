@@ -3,7 +3,7 @@ import { defineConfig } from "astro/config";
 
 export default defineConfig({
   site: "https://valtterisa.github.io",
-  base: "/eurocloud",
+  base: process.env.ASTRO_BASE ?? "/",
   trailingSlash: "never",
   integrations: [sitemap()],
 });
