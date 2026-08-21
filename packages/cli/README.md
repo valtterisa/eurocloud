@@ -4,7 +4,7 @@ Create, list, inspect, destroy, and SSH into Hetzner and OVHcloud servers.
 
 ```bash
 npm install -g eurocloud
-eurocloud create --name my-app
+eurocloud create --name my-app --provider hetzner
 ```
 
 Or run without installing:
@@ -19,7 +19,7 @@ Docs: [valtterisa.github.io/eurocloud](https://valtterisa.github.io/eurocloud/)
 
 No login command. Set provider tokens in the environment or a `.env` file in the working directory.
 
-Hetzner (default):
+Hetzner:
 
 ```bash
 export HCLOUD_TOKEN=your-token
@@ -28,7 +28,6 @@ export HCLOUD_TOKEN=your-token
 OVHcloud:
 
 ```bash
-export EUROCLOUD_PROVIDER=ovh
 export OVH_APPLICATION_KEY=...
 export OVH_APPLICATION_SECRET=...
 export OVH_CONSUMER_KEY=...
@@ -38,11 +37,11 @@ export OVH_PROJECT_ID=...
 ## Commands
 
 ```bash
-eurocloud create --name my-app
-eurocloud list --json
-eurocloud get my-app
-eurocloud ssh my-app
-eurocloud destroy my-app
+eurocloud create --name my-app --provider hetzner
+eurocloud list --provider hetzner --json
+eurocloud get my-app --provider hetzner
+eurocloud ssh my-app --provider hetzner
+eurocloud destroy my-app --provider hetzner
 ```
 
-Switch clouds with `--provider ovh` or `--provider hetzner`.
+`--provider` is required (`hetzner` or `ovh`).

@@ -13,7 +13,7 @@ export function registerDestroy(
     .description("Delete a server")
     .argument("<name_or_id>", "Server name or ID");
   addProviderOption(command);
-  addJsonOption(command).action(async (nameOrId: string, options: { json?: boolean; provider?: string }) => {
+  addJsonOption(command).action(async (nameOrId: string, options: { json?: boolean; provider: string }) => {
     const provider = resolveProvider(options.provider);
     const server = await provider.destroyServer(nameOrId);
 

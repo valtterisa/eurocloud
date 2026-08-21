@@ -9,10 +9,10 @@ const mark = [
 
 const commands = [
   "",
-  "  $ eurocloud create --name my-app",
-  "  $ eurocloud list --json",
-  "  $ eurocloud ssh my-app",
-  "  $ eurocloud destroy my-app",
+  "  $ eurocloud create --name my-app --provider hetzner",
+  "  $ eurocloud list --provider hetzner --json",
+  "  $ eurocloud ssh my-app --provider hetzner",
+  "  $ eurocloud destroy my-app --provider hetzner",
 ];
 
 const inner = [...mark, ...commands];

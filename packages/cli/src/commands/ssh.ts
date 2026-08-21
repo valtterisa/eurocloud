@@ -51,7 +51,7 @@ type SshOptions = {
   user?: string;
   port: string;
   json?: boolean;
-  provider?: string;
+  provider: string;
 };
 
 export function parseSshPort(value: string): number {

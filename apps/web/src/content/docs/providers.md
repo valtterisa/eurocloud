@@ -4,12 +4,11 @@ description: How eurocloud maps Hetzner and OVHcloud into one command surface.
 order: 4
 ---
 
-Commands call a `CloudProvider` interface. Hetzner is the default. OVHcloud is registered as `ovh` (alias `ovhcloud`).
+Commands call a `CloudProvider` interface. Pass `--provider` on every command. OVHcloud is registered as `ovh` (alias `ovhcloud`).
 
 ```bash
 eurocloud list --provider hetzner
 eurocloud list --provider ovh
-export EUROCLOUD_PROVIDER=ovh
 ```
 
 Unknown names fail with `unknown_provider` and list the available providers.

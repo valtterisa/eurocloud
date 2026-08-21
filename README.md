@@ -4,7 +4,7 @@ Create, list, inspect, destroy, and SSH into Hetzner and OVHcloud servers.
 
 ```bash
 npm install -g eurocloud
-eurocloud create --name my-app
+eurocloud create --name my-app --provider hetzner
 ```
 
 This repo is the monorepo for the **eurocloud** npm package and its site.

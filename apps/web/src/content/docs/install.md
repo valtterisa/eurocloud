@@ -11,7 +11,7 @@ eurocloud is a Node.js 18+ CLI published as [`eurocloud`](https://www.npmjs.com/
 ```bash
 npm install -g eurocloud
 eurocloud --help
-eurocloud create --name my-app
+eurocloud create --name my-app --provider hetzner
 ```
 
 Run once without a global install:

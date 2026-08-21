@@ -41,4 +41,4 @@ export interface CloudProvider {
   destroyServer(nameOrId: string): Promise<Server>;
 }
 
-export type ResolveProvider = (name?: string) => CloudProvider;
+export type ResolveProvider = (name: string) => CloudProvider;

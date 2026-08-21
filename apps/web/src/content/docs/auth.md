@@ -6,7 +6,7 @@ order: 2
 
 eurocloud does not use a login command. Paste provider credentials into the environment or a `.env` file in the working directory.
 
-Choose a provider with `--provider` or `EUROCLOUD_PROVIDER`. Default is Hetzner.
+Choose a provider with `--provider` on every command (`hetzner` or `ovh`).
 
 ## Hetzner
 
@@ -21,7 +21,7 @@ export HCLOUD_TOKEN=your-token
 `EUROCLOUD_TOKEN` is used if `HCLOUD_TOKEN` is unset.
 
 ```bash
-eurocloud list
+eurocloud list --provider hetzner
 ```
 
 ## OVHcloud
@@ -32,7 +32,6 @@ eurocloud talks to the [Public Cloud instance API](https://api.eu.ovhcloud.com/c
 2. Set:
 
 ```bash
-export EUROCLOUD_PROVIDER=ovh
 export OVH_APPLICATION_KEY=...
 export OVH_APPLICATION_SECRET=...
 export OVH_CONSUMER_KEY=...

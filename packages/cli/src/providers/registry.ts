@@ -3,8 +3,6 @@ import { createHetznerProvider } from "./hetzner/index.js";
 import { createOvhProvider } from "./ovh/index.js";
 import type { CloudProvider, ResolveProvider } from "./types.js";
 
-export const DEFAULT_PROVIDER = "hetzner";
-
 const factories: Record<string, () => CloudProvider> = {
   hetzner: () => createHetznerProvider(),
   ovh: () => createOvhProvider(),
@@ -15,12 +13,18 @@ export function listProviderIds(): string[] {
   return ["hetzner", "ovh"];
 }
 
-export function resolveProviderId(name?: string): string {
-  const id = (name ?? process.env.EUROCLOUD_PROVIDER ?? DEFAULT_PROVIDER).trim().toLowerCase();
-  return id.length > 0 ? id : DEFAULT_PROVIDER;
+export function resolveProviderId(name: string): string {
+  const id = name.trim().toLowerCase();
+  if (id.length === 0) {
+    throw new CliError(
+      `Provider is required. Available: ${listProviderIds().join(", ")}`,
+      "provider_required",
+    );
+  }
+  return id;
 }
 
-export function getProvider(name?: string): CloudProvider {
+export function getProvider(name: string): CloudProvider {
   const id = resolveProviderId(name);
   const factory = factories[id];
   if (!factory) {

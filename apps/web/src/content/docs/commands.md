@@ -4,18 +4,18 @@ description: Create, list, inspect, SSH into, and destroy cloud servers with eur
 order: 3
 ---
 
-Every data command accepts `--provider <name>` and `--json`.
+Every data command requires `--provider <name>` and accepts `--json`.
 
 ## create
 
 ```bash
-eurocloud create --name my-app
+eurocloud create --name my-app --provider hetzner
 eurocloud create --name my-app --provider ovh
-eurocloud create --name my-app --type cpx21 --image ubuntu-24.04 --location nbg1
-eurocloud create --name my-app --ssh-key my-laptop --ssh-key 123456
+eurocloud create --name my-app --provider hetzner --type cpx21 --image ubuntu-24.04 --location nbg1
+eurocloud create --name my-app --provider hetzner --ssh-key my-laptop --ssh-key 123456
 ```
 
-`--name` is required. Other flags fall back to the provider defaults.
+`--name` and `--provider` are required. Other flags fall back to the provider defaults.
 
 | Flag | Hetzner default | OVH default |
 |------|-----------------|-------------|
@@ -28,7 +28,7 @@ eurocloud create --name my-app --ssh-key my-laptop --ssh-key 123456
 ## list
 
 ```bash
-eurocloud list
+eurocloud list --provider hetzner
 eurocloud list --provider ovh
 ```
 
@@ -37,8 +37,8 @@ eurocloud list --provider ovh
 Resolve by name or provider ID.
 
 ```bash
-eurocloud get my-app
-eurocloud get 42
+eurocloud get my-app --provider hetzner
+eurocloud get 42 --provider hetzner
 ```
 
 ## ssh
@@ -46,7 +46,7 @@ eurocloud get 42
 Opens a native session: `ssh <user>@<ipv4>`.
 
 ```bash
-eurocloud ssh my-app
+eurocloud ssh my-app --provider hetzner
 eurocloud ssh my-app --user ubuntu --port 22 --provider ovh
 ```
 
@@ -57,5 +57,5 @@ Hetzner default user is `root`. OVH default user is `ubuntu`.
 ## destroy
 
 ```bash
-eurocloud destroy my-app
+eurocloud destroy my-app --provider hetzner
 ```

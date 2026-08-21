@@ -57,7 +57,7 @@ export function registerCreate(
     if (summary.root_password) {
       lines.push(`Root password: ${summary.root_password}`);
     }
-    lines.push(`SSH:      eurocloud ssh ${summary.name}`);
+    lines.push(`SSH:      eurocloud ssh ${summary.name} --provider ${summary.provider}`);
     printLines(lines);
   });
 }
@@ -69,7 +69,7 @@ type CreateOptions = {
   location?: string;
   sshKey?: string[];
   json?: boolean;
-  provider?: string;
+  provider: string;
 };
 
 function collectSshKeys(value: string, previous: string[] | undefined): string[] {

@@ -10,7 +10,7 @@ export function registerList(
 ): void {
   const command = program.command("list").description("List all servers");
   addProviderOption(command);
-  addJsonOption(command).action(async (options: { json?: boolean; provider?: string }) => {
+  addJsonOption(command).action(async (options: { json?: boolean; provider: string }) => {
     const provider = resolveProvider(options.provider);
     const servers = await provider.listServers();
 

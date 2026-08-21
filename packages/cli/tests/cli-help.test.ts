@@ -13,9 +13,15 @@ describe("CLI without live cloud calls", () => {
   });
 
   it("requires --name for create", async () => {
-    const result = await run(["create"]);
+    const result = await run(["create", "--provider", "hetzner"]);
     expect(result.exitCode).not.toBe(0);
     expect(result.stderr + result.stdout).toMatch(/name/i);
+  });
+
+  it("requires --provider", async () => {
+    const result = await run(["list", "--json"]);
+    expect(result.exitCode).not.toBe(0);
+    expect(result.stderr + result.stdout).toMatch(/provider/i);
   });
 
   it("rejects unknown providers", async () => {
