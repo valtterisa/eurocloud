@@ -26,12 +26,10 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
-      - uses: actions/configure-pages@v6
-        id: pages
       - run: pnpm install --frozen-lockfile
       - run: pnpm web:build
         env:
-          ASTRO_BASE: ${{ steps.pages.outputs.base_path || '/eurocloud' }}
+          ASTRO_BASE: /eurocloud
       - uses: actions/upload-pages-artifact@v5
         with:
           path: apps/web/dist
