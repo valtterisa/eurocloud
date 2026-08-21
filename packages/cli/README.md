@@ -1,12 +1,48 @@
-# eurocloud CLI
+# eurocloud
 
 Create, list, inspect, destroy, and SSH into Hetzner and OVHcloud servers.
 
-Full docs live in `apps/web` (`pnpm --filter @eurocloud/web dev`).
-
 ```bash
-pnpm --filter eurocloud build
-pnpm --filter eurocloud exec eurocloud --help
+npm install -g eurocloud
+eurocloud create --name my-app
 ```
 
-Credentials: copy `.env.example` to `.env`. Live tests (`pnpm --filter eurocloud test:live`) create a real server and then delete it.
+Or run without installing:
+
+```bash
+npx eurocloud --help
+```
+
+Docs: [valtterisa.github.io/eurocloud](https://valtterisa.github.io/eurocloud/)
+
+## Auth
+
+No login command. Set provider tokens in the environment or a `.env` file in the working directory.
+
+Hetzner (default):
+
+```bash
+export HCLOUD_TOKEN=your-token
+```
+
+OVHcloud:
+
+```bash
+export EUROCLOUD_PROVIDER=ovh
+export OVH_APPLICATION_KEY=...
+export OVH_APPLICATION_SECRET=...
+export OVH_CONSUMER_KEY=...
+export OVH_PROJECT_ID=...
+```
+
+## Commands
+
+```bash
+eurocloud create --name my-app
+eurocloud list --json
+eurocloud get my-app
+eurocloud ssh my-app
+eurocloud destroy my-app
+```
+
+Switch clouds with `--provider ovh` or `--provider hetzner`.

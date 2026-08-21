@@ -1,25 +1,30 @@
 ---
 title: Install
-description: Install the eurocloud CLI with pnpm and run it from your terminal.
+description: Install the eurocloud CLI from npm and run it from your terminal.
 order: 1
 ---
 
-eurocloud is a Node.js 18+ CLI. Install it from the monorepo or link the built package.
+eurocloud is a Node.js 18+ CLI published as [`eurocloud`](https://www.npmjs.com/package/eurocloud) on npm.
 
-## From this repository
+## npm
 
 ```bash
-git clone https://github.com/your-org/eurocloud
-cd eurocloud
-pnpm install
-pnpm --filter eurocloud build
-pnpm --filter eurocloud exec eurocloud --help
+npm install -g eurocloud
+eurocloud --help
+eurocloud create --name my-app
 ```
 
-Then:
+Run once without a global install:
 
 ```bash
-eurocloud --help
+npx eurocloud --help
+```
+
+pnpm and yarn work the same way:
+
+```bash
+pnpm add -g eurocloud
+yarn global add eurocloud
 ```
 
 ## Requirements
@@ -27,6 +32,18 @@ eurocloud --help
 - Node.js 18 or newer
 - An API token for [Hetzner Cloud](./auth) and/or [OVHcloud](./auth)
 - OpenSSH on your PATH if you use `eurocloud ssh`
+
+## From source
+
+Contributors can build the workspace package:
+
+```bash
+git clone https://github.com/valtterisa/eurocloud
+cd eurocloud
+pnpm install
+pnpm --filter eurocloud build
+pnpm --filter eurocloud exec eurocloud --help
+```
 
 ## Next
 

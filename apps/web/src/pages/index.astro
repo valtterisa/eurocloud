@@ -113,11 +113,10 @@ import "../styles/global.css";
     <section class="block block-code">
       <header class="sect">
         <h2>Install and run.</h2>
-        <p>Node 18+. Build the workspace package, then run it.</p>
+        <p>Node 18+. Install the npm package, then create a server.</p>
       </header>
-      <pre class="install-pre"><code>pnpm install
-pnpm cli:build
-pnpm cli -- create --name my-app</code></pre>
+      <pre class="install-pre"><code>npm install -g eurocloud
+eurocloud create --name my-app</code></pre>
     </section>
 
     <SectionGap />
@@ -125,7 +124,7 @@ pnpm cli -- create --name my-app</code></pre>
     <section class="block">
       <header class="sect">
         <h2>Source.</h2>
-        <p>Open on GitHub. MIT. One contributor so far.</p>
+        <p>MIT. Install from npm. Code on GitHub.</p>
       </header>
       <div class="source">
         <a class="who" href="https://github.com/valtterisa" rel="noreferrer">
@@ -136,6 +135,9 @@ pnpm cli -- create --name my-app</code></pre>
             height="32"
           />
           valtterisa
+        </a>
+        <a class="pkg" href="https://www.npmjs.com/package/eurocloud" rel="noreferrer">
+          npmjs.com/package/eurocloud
         </a>
         <a class="repo" href="https://github.com/valtterisa/eurocloud" rel="noreferrer">
           github.com/valtterisa/eurocloud

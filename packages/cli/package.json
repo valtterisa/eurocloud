@@ -9,6 +9,18 @@
   "files": [
     "dist"
   ],
+  "homepage": "https://valtterisa.github.io/eurocloud/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/valtterisa/eurocloud.git",
+    "directory": "packages/cli"
+  },
+  "bugs": {
+    "url": "https://github.com/valtterisa/eurocloud/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",

@@ -1,6 +1,13 @@
 # eurocloud
 
-Monorepo for the **eurocloud** CLI and its marketing site.
+Create, list, inspect, destroy, and SSH into Hetzner and OVHcloud servers.
+
+```bash
+npm install -g eurocloud
+eurocloud create --name my-app
+```
+
+This repo is the monorepo for the **eurocloud** npm package and its site.
 
 | Path | What |
 |------|------|

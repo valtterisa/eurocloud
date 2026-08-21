@@ -507,13 +507,18 @@ pre {
   border: 1px solid var(--line);
 }
 
+.source .pkg,
+.source .repo {
+  border-left: 1px solid var(--line);
+}
+
 .source .repo {
   margin-left: auto;
-  border-left: 1px solid var(--line);
   color: var(--ink);
 }
 
 @media (max-width: 759px) {
+  .source .pkg,
   .source .repo {
     margin-left: 0;
     border-left: 0;
