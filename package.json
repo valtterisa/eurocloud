@@ -1,0 +1,30 @@
+{
+  "name": "eurocloud-monorepo",
+  "private": true,
+  "packageManager": "pnpm@11.22.0",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "typecheck": "turbo run typecheck",
+    "cli": "pnpm --filter eurocloud start --",
+    "cli:dev": "pnpm --filter eurocloud dev",
+    "cli:build": "pnpm --filter eurocloud build",
+    "cli:start": "pnpm --filter eurocloud start --",
+    "cli:test": "pnpm --filter eurocloud test",
+    "cli:test:watch": "pnpm --filter eurocloud test:watch",
+    "cli:test:live": "pnpm --filter eurocloud test:live",
+    "cli:typecheck": "pnpm --filter eurocloud typecheck",
+    "web": "pnpm --filter @eurocloud/web dev",
+    "web:dev": "pnpm --filter @eurocloud/web dev",
+    "web:build": "pnpm --filter @eurocloud/web build",
+    "web:preview": "pnpm --filter @eurocloud/web preview",
+    "web:typecheck": "pnpm --filter @eurocloud/web typecheck"
+  },
+  "devDependencies": {
+    "turbo": "^2.5.4"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

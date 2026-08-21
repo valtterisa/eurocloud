@@ -1,0 +1,17 @@
+---
+interface Props {
+  current?: "home" | "docs";
+}
+
+const { current } = Astro.props;
+---
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="/">eurocloud<span>.</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/docs/install" aria-current={current === "docs" ? "page" : undefined}>Docs</a>
+      <a class="btn" href="/docs/install">Get started</a>
+    </nav>
+  </div>
+</header>

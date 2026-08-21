@@ -1,0 +1,42 @@
+{
+  "name": "eurocloud",
+  "version": "0.1.0",
+  "description": "Minimal TypeScript CLI for Hetzner and OVHcloud servers",
+  "type": "module",
+  "bin": {
+    "eurocloud": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "start": "node dist/index.js",
+    "test": "vitest run --exclude tests/live/**",
+    "test:watch": "vitest",
+    "test:live": "vitest run tests/live",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "hetzner",
+    "ovh",
+    "cloud",
+    "cli",
+    "servers"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^12.1.0",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2",
+    "vitest": "^3.0.5"
+  }
+}

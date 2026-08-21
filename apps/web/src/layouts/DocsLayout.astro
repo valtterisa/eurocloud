@@ -1,0 +1,36 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "./Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+}
+
+const { title, description, path } = Astro.props;
+const docs = (await getCollection("docs")).sort((a, b) => a.data.order - b.data.order);
+---
+
+<Layout title={`${title} — eurocloud docs`} description={description} path={path}>
+  <Header current="docs" />
+  <main id="main" class="wrap docs">
+    <nav class="docs-nav" aria-label="Docs">
+      <p class="label">Docs</p>
+      {
+        docs.map((doc) => (
+          <a href={`/docs/${doc.id}`} aria-current={path === `/docs/${doc.id}` ? "page" : undefined}>
+            {doc.data.title}
+          </a>
+        ))
+      }
+    </nav>
+    <article class="prose">
+      <slot />
+    </article>
+  </main>
+  <Footer />
+</Layout>
